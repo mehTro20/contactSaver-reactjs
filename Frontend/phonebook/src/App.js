@@ -1,36 +1,19 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Form from "./pages/form";
+import PhoneBookList from "./phoneBookList";
 import "./App.css";
 
 function App() {
-  const [phoneBook, setPhoneBook] = useState([]);
-
-  const getContacts = (e) => {
-    e.preventDefault();
-
-    axios
-      .get(`http://localhost:7000/contacts`)
-      .then((res) => {
-        setPhoneBook(res.data);
-        console.log(phoneBook);
-        return res.data;
-      })
-      .catch((err) => {
-        console.log(err.res.data.err);
-      });
-  };
-
   return (
-    <div className="App">
-      <button onClick={getContacts}>Get</button>
-      {phoneBook.map((item, i) => {
-        return (
-          <div key={i}>
-            <h3>{item.contact_name}</h3>
-          </div>
-        );
-      })}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<PhoneBookList />} />
+          <Route path="/form" element={<Form />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

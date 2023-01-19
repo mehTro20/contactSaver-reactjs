@@ -10,7 +10,8 @@ const getContacts = asyncHandler(async (req, res) => {
 });
 
 const setContact = asyncHandler(async (req, res) => {
-  const body = req.body;
+  const body = req.body.form;
+  console.log(body);
   if (!body) {
     res.status(400);
     throw new Error("Error message");
@@ -33,12 +34,12 @@ const putContact = asyncHandler(async (req, res) => {
   }
   const updateContact = await PhoneBook.findByIdAndUpdate(
     req.params.id,
-    req.body,
+    req.body.newForm,
     {
       new: true,
     }
   );
-  console.log("something was changed ", req.body)
+  console.log("something was changed ", req.body);
   res.status(200).json(updateContact);
 });
 
@@ -51,7 +52,7 @@ const deleteContact = asyncHandler(async (req, res) => {
   }
 
   await contacts.remove();
-  console.log("something was removed")
+  console.log("something was removed");
   res.status(200).json({ id: req.params.id });
 });
 
