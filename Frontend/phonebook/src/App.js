@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Form from "./pages/form";
 import PhoneBookList from "./phoneBookList";
 import "./App.css";
+import AddContact from "./pages/form";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<PhoneBookList />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/form" element={<AddContact />} />
         </Routes>
       </div>
     </BrowserRouter>

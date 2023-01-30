@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,21 @@
   to {
     transform: rotate(360deg);
   }
+} */
+/* $colors: #1abc9c, #2ecc71, #3498db, #9b59b6, #f1c40f, #e67e22, #e74c3c, #95a5a6;
+
+body {
+  background-color: nth($colors, random(length($colors)) + 1);
+} */
+
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #ff0000;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-align: center;
+  line-height: 50px;
 }
